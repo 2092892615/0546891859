@@ -4,6 +4,8 @@
 
 <p>This repository contains the materials to support the article <strong>"Service-aware password risk meter – Helping users to choose suitable passwords in services"</strong>, submitted for consideration in ARES 2025.</p>
 
+<p>Some elements have been removed to ensure anonymity.</p>
+
 <p>These materials include:</p>
 
 <ol>
@@ -62,6 +64,8 @@
 <h2>Español</h2>
 
 <p>Este repositorio contiene los materiales de apoyo para el artículo <strong>"Service-aware password risk meter – Helping users to choose suitable passwords in services"</strong>, enviado para consideración en ARES 2025.</p>
+
+<p>Algunos elementos han sido eliminados para garantizar el anonimato.</p>
 
 <p>Estos materiales incluyen:</p>
 
