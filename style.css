@@ -1,0 +1,533 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Ensure rows and columns wrap properly */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%; /* Make sure it takes full width */
+    margin: 0 auto; /* Center align */
+}
+
+/* Columns */
+.column {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 80%;    
+}
+
+/* Service and User Cards */
+.service-card, .risk-box, .password-section {
+    background-color: #fff; /* Ensures consistent background */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0; /* Remove any unnecessary margins */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Centering the dropdown */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Styling for the dropdown */
+#serviceDropdown {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007BFF;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+#serviceDropdown:hover {
+    border-color: #0056b3;
+}
+
+/* Focus effect */
+#serviceDropdown:focus {
+    border-color: #0056b3;
+    box-shadow: 0px 0px 6px rgba(0, 91, 187, 0.5);
+}
+
+/* Style for dropdown options */
+#serviceDropdown option {
+    font-size: 16px;
+    background-color: white;
+    color: #333;
+    padding: 5px;
+}
+
+/* Adding a nice transition */
+#serviceDropdown:active {
+    transform: scale(0.98);
+}
+
+.indicator-item {
+    display: flex;
+    justify-content: space-between; /* Separa texto e indicador */
+    align-items: center;
+    width: 100%;
+    padding: 8px 15px;
+    box-sizing: border-box; /* Evita que el padding haga que se desborde */
+}
+
+.indicator-item span {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 15px; /* Más espacio entre texto e indicador */
+    white-space: nowrap; /* Evita que el texto se corte en varias líneas */
+    overflow: hidden; /* Si el texto es largo, no se desbordará */
+    text-overflow: ellipsis; /* Agrega "..." si el texto es demasiado largo */
+}
+
+.indicator {
+    flex-shrink: 0; /* Evita que el indicador se reduzca en flex */
+    width: 20px; /* Tamaño fijo */
+    height: 20px;
+    border-radius: 50%;
+    margin-left: auto; /* Empuja el indicador a la derecha */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Popup Styling */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.popup-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup-content ol {
+    text-align: left;
+}
+
+.popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+
+/* Language Switcher Button */
+.lang-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #007BFF;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007BFF;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.lang-switcher:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Reopen Instructions Button */
+.reopen-popup {
+    position: fixed;
+    top: 10px;
+    right: 130px; /* Positioned next to the language switcher */
+    background: white;
+    border: 1px solid #28A745; /* Green border for differentiation */
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #28A745;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.reopen-popup:hover {
+    background-color: #28A745;
+    color: white;
+}
+
+/* Search Bar */
+.search-bar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Suggestions List */
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:hover {
+    background-color: #f9f9f9;
+}
+
+/* Tooltip Icon */
+.tooltip-icon {
+    display: inline-block;
+    margin-left: 5px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #007BFF;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Tooltip Text (Hidden by Default) */
+.tooltip-icon::after {
+    content: attr(data-tooltip); /* Gets text from data-tooltip attribute */
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show Tooltip on Hover */
+.tooltip-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Indicators */
+.indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Risk Indicators */
+#riskOfDataExposureIndicator,
+#serviceRiskIndicator,
+#userRiskIndicator {
+    background-color: gray;
+}
+
+/* Global Risk Bar Container */
+.global-risk-container {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Bar Background */
+.global-risk-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bar Fill (Changes Color Dynamically) */
+.risk-fill {
+    height: 100%;
+    width: 0%; /* Default Empty */
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* Risk Levels */
+.risk-fill.green { background-color: green; }
+.risk-fill.yellow { background-color: yellow; }
+.risk-fill.orange { background-color: orange; }
+.risk-fill.red { background-color: red; }
+
+/* Legend Styling */
+/* Legend Container */
+.legend-bar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Gradient Bar */
+.legend-bar {
+    width: 100%;
+    height: 50px; /* Increased height */
+    background: linear-gradient(to right, 
+        green 0%, 
+        yellow 25%, 
+        orange 50%, 
+        red 100%);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 14px; /* Slightly bigger text */
+    font-weight: bold;
+    color: white; /* White text */
+}
+
+/* Legend Text Sections */
+.legend-section {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding-top: 10px; /* Adjusted to center text */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Ensure text is readable */
+#legend_very_small { color: black; }
+#legend_small { color: black; }
+#legend_big { color: black; }
+#legend_very_big { color: white; } /* White for contrast on red */
+
+/* Research Information */
+.research-info {
+    background-color: #eef6ff;
+    border-left: 4px solid #007BFF;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 14px;
+    color: #333;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.research-info p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.research-info strong {
+    color: #0056b3;
+}
+
+/* Data Privacy Notice */
+.data-privacy-notice {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    border-top: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.data-privacy-notice p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.data-privacy-notice strong {
+    color: #d9534f;
+}
+
+/* Top and Bottom Banners */
+.top-banner, .bottom-banner {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.top-banner img, .bottom-banner img {
+    max-height: 70px;
+    object-fit: cover;
+}
+
+.bottom-banner {
+    margin-top: auto;
+}
+
+/* Prevent horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Ensure no horizontal scrolling */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Remove unwanted spacing in row */
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 20;
+    }
+
+    /* Ensure columns take full width */
+    .column {
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* Remove all extra spacing from cards */
+    .card {
+        width: 90%; /* Avoid fixed-width issues */
+        max-width: 400px; /* Prevent excessive stretching */
+        margin: 0 auto 0 auto !important; /* Ensure consistent margin */
+        padding: 5px !important; /* Reduce padding */
+        box-sizing: border-box;
+    }
+
+    /* Override any default bottom margin */
+    .card + .card {
+        margin-top: 5px !important; /* Reduce space between cards */
+    }
+
+    /* Ensure the last card does not create extra space */
+    .card:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .tooltip-icon::after {
+        left: auto; /* Restablece la alineación */
+        right: 0; /* Ajusta a la derecha si es necesario */
+        transform: translateX(0); /* Evita que se desborde */
+        max-width: 90vw; /* Limita el ancho para que no se salga */
+        text-align: left; /* Hace que sea más fácil de leer */
+        white-space: pre-line; /* Permite saltos de línea automáticos cuando no haya más espacio */
+    }
+
+    .top-banner img, .bottom-banner img {
+        max-height: 30px; /* Reduce the height to fit better */
+        width: auto; /* Prevent stretching */
+        object-fit: contain; /* Ensure it scales well */
+    }
+}
+
