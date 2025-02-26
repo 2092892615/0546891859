@@ -11,50 +11,84 @@
 <ol>
     <li>A <strong>website</strong> that implements a password risk meter, helping users evaluate the security of their passwords based on the context of the service.</li>
     <li>The <strong>\( R_d \) matrix</strong>, provided in the file <strong>Rd_matrix.xlsx</strong>, which is used to compute password risk levels.</li>
+    <li><strong>Survey results</strong> stored in the <strong>surveys</strong> folder:
+        <ul>
+            <li><strong>Expert validation</strong> results in <strong>expert_validation_english.xlsx</strong> and <strong>expert_validation_spanish.xlsx</strong>.</li>
+            <li><strong>User validation</strong> results in <strong>user_validation.xlsx</strong>.</li>
+        </ul>
+    </li>
 </ol>
 
 <h3>How to Run the Website Locally</h3>
-<p>The website can be hosted locally using Python's built-in HTTP server:</p>
+<p>To run the website, navigate to the <strong>risk-meter</strong> folder and start the server:</p>
 
 <h4>Using Python 3:</h4>
-<pre><code>python -m http.server</code></pre>
+<pre><code>cd risk-meter
+python -m http.server</code></pre>
 <p>The website will be available at <a href="http://localhost:8000">http://localhost:8000</a>.</p>
 
 <h4>Using Python 2:</h4>
-<pre><code>python -m SimpleHTTPServer</code></pre>
+<pre><code>cd risk-meter
+python -m SimpleHTTPServer</code></pre>
 
 <h3>Repository Structure</h3>
+
+<h4>Root Directory</h4>
 <ul>
-    <li><strong>index.html</strong> - Main HTML file.</li>
-    <li><strong>app.js</strong> - Main JavaScript logic.</li>
-    <li><strong>style.css</strong> - Stylesheet.</li>
-    <li><strong>Rd_matrix.xlsx</strong> - Contains the \( R_d \) matrix used in risk calculations.</li>
-    <li><strong>.gitignore</strong> - Specifies files to be ignored by Git.</li>
-    <li><strong>LICENSE.md</strong> - License file.</li>
-    <li><strong>readme.md</strong> - Markdown version of this README.</li>
+    <li><strong>.gitattributes</strong> - Git configuration file.</li>
+    <li><strong>.gitignore</strong> - Specifies files ignored by Git.</li>
 </ul>
 
-<h4>Folders:</h4>
+<h4>Risk Meter (Website)</h4>
 <ul>
-    <li><strong>assets/</strong> - Contains images and icons.</li>
-    <li><strong>data/</strong> - Stores JSON data, including:
+    <li><strong>risk-meter/</strong> - Contains the implementation of the password risk meter:
         <ul>
-            <li><strong>services.json</strong> - Service-related data.</li>
-            <li><strong>translations/</strong> - Language translations:
+            <li><strong>index.html</strong> - Main HTML file.</li>
+            <li><strong>app.js</strong> - Main JavaScript logic.</li>
+            <li><strong>style.css</strong> - Stylesheet.</li>
+            <li><strong>LICENSE</strong> - License file.</li>
+            <li><strong>readme.md</strong> - Markdown version of this README.</li>
+            <li><strong>assets/images/</strong> - Contains images and icons.</li>
+            <li><strong>data/</strong> - Stores JSON data:
                 <ul>
-                    <li><strong>en.json</strong> - English translations.</li>
-                    <li><strong>es.json</strong> - Spanish translations.</li>
+                    <li><strong>services.json</strong> - Service-related data.</li>
+                    <li><strong>translations/</strong> - Language translations:
+                        <ul>
+                            <li><strong>en.json</strong> - English translations.</li>
+                            <li><strong>es.json</strong> - Spanish translations.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>js/</strong> - JavaScript scripts:
+                <ul>
+                    <li><strong>passwordStrengthChecker.js</strong> - Evaluates password strength.</li>
+                    <li><strong>popup.js</strong> - Manages popups.</li>
+                    <li><strong>riskCalculation.js</strong> - Computes risk using \( R_d \).</li>
+                    <li><strong>search.js</strong> - Implements search functionality.</li>
+                    <li><strong>zxcvbn.js</strong> - External library for password analysis.</li>
                 </ul>
             </li>
         </ul>
     </li>
-    <li><strong>js/</strong> - JavaScript scripts:
+</ul>
+
+<h4>Survey Data</h4>
+<ul>
+    <li><strong>surveys/</strong> - Contains survey results:
         <ul>
-            <li><strong>passwordStrengthChecker.js</strong> - Evaluates password strength.</li>
-            <li><strong>popup.js</strong> - Manages popups.</li>
-            <li><strong>riskCalculation.js</strong> - Computes risk using \( R_d \).</li>
-            <li><strong>search.js</strong> - Implements search functionality.</li>
-            <li><strong>zxcvbn.js</strong> - External library for password analysis.</li>
+            <li><strong>Rd_matrix.xlsx</strong> - The \( R_d \) matrix used in risk calculations.</li>
+            <li><strong>expert validation/</strong> - Results from expert validation:
+                <ul>
+                    <li><strong>expert_validation_english.xlsx</strong> - Expert validation in English.</li>
+                    <li><strong>expert_validation_spanish.xlsx</strong> - Expert validation in Spanish.</li>
+                </ul>
+            </li>
+            <li><strong>user validation/</strong> - Results from user validation:
+                <ul>
+                    <li><strong>user_validation.xlsx</strong> - User validation results.</li>
+                </ul>
+            </li>
         </ul>
     </li>
 </ul>
@@ -72,50 +106,22 @@
 <ol>
     <li>Un <strong>sitio web</strong> que implementa un medidor de riesgo de contraseñas, ayudando a los usuarios a evaluar la seguridad de sus contraseñas según el contexto del servicio.</li>
     <li>La <strong>matriz \( R_d \)</strong>, proporcionada en el archivo <strong>Rd_matrix.xlsx</strong>, utilizada para calcular los niveles de riesgo de las contraseñas.</li>
+    <li><strong>Resultados de encuestas</strong> almacenados en la carpeta <strong>surveys</strong>:
+        <ul>
+            <li><strong>Validación de expertos</strong> en <strong>expert_validation_english.xlsx</strong> y <strong>expert_validation_spanish.xlsx</strong>.</li>
+            <li><strong>Validación de usuarios</strong> en <strong>user_validation.xlsx</strong>.</li>
+        </ul>
+    </li>
 </ol>
 
 <h3>Cómo Ejecutar el Sitio Web Localmente</h3>
-<p>El sitio web puede alojarse localmente utilizando el servidor HTTP integrado en Python:</p>
+<p>Para ejecutar el sitio web, navega a la carpeta <strong>risk-meter</strong> y ejecuta el servidor:</p>
 
 <h4>Usando Python 3:</h4>
-<pre><code>python -m http.server</code></pre>
+<pre><code>cd risk-meter
+python -m http.server</code></pre>
 <p>El sitio estará disponible en <a href="http://localhost:8000">http://localhost:8000</a>.</p>
 
 <h4>Usando Python 2:</h4>
-<pre><code>python -m SimpleHTTPServer</code></pre>
-
-<h3>Estructura del Repositorio</h3>
-<ul>
-    <li><strong>index.html</strong> - Archivo HTML principal.</li>
-    <li><strong>app.js</strong> - Lógica principal en JavaScript.</li>
-    <li><strong>style.css</strong> - Hoja de estilos.</li>
-    <li><strong>Rd_matrix.xlsx</strong> - Contiene la matriz \( R_d \) utilizada en los cálculos de riesgo.</li>
-    <li><strong>.gitignore</strong> - Especifica archivos ignorados por Git.</li>
-    <li><strong>LICENSE.md</strong> - Archivo de licencia.</li>
-    <li><strong>readme.md</strong> - Versión en Markdown de este README.</li>
-</ul>
-
-<h4>Carpetas:</h4>
-<ul>
-    <li><strong>assets/</strong> - Contiene imágenes e íconos.</li>
-    <li><strong>data/</strong> - Almacena datos en JSON, incluyendo:
-        <ul>
-            <li><strong>services.json</strong> - Datos relacionados con los servicios.</li>
-            <li><strong>translations/</strong> - Traducciones de idioma:
-                <ul>
-                    <li><strong>en.json</strong> - Traducciones en inglés.</li>
-                    <li><strong>es.json</strong> - Traducciones en español.</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li><strong>js/</strong> - Scripts JavaScript:
-        <ul>
-            <li><strong>passwordStrengthChecker.js</strong> - Evalúa la fortaleza de la contraseña.</li>
-            <li><strong>popup.js</strong> - Gestiona popups.</li>
-            <li><strong>riskCalculation.js</strong> - Calcula el riesgo usando \( R_d \).</li>
-            <li><strong>search.js</strong> - Implementa la búsqueda.</li>
-            <li><strong>zxcvbn.js</strong> - Biblioteca externa para análisis de contraseñas.</li>
-        </ul>
-    </li>
-</ul>
+<pre><code>cd risk-meter
+python -m SimpleHTTPServer</code></pre>
